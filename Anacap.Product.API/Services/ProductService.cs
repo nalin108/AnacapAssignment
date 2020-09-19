@@ -13,8 +13,9 @@ namespace Anacap.Product.API.Services
         {
             _products = products;
         }
-        public Products GetProducts()
+        public Products GetProducts(PageOptions pageOptions, SearchOptions searchOptions)
         {
+            _products.Value= FilterProducts.Apply(_products.Value, pageOptions, searchOptions);
             return _products;
         }
     }

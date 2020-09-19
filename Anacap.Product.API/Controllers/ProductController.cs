@@ -20,9 +20,12 @@ namespace Anacap.Product.API.Controllers
         }
 
         [HttpGet(Name = nameof(GetProducts))]
-        public ActionResult<Products> GetProducts()
+        public ActionResult<Products> GetProducts(
+            [FromQuery] PageOptions pageOptions,
+            [FromQuery] SearchOptions searchOptions
+            )
         {
-            var products = _productService.GetProducts();
+            var products = _productService.GetProducts(pageOptions, searchOptions);
             if (products == null)
                 return NotFound();
 

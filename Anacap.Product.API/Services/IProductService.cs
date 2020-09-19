@@ -8,6 +8,6 @@ namespace Anacap.Product.API.Services
 {
     public interface IProductService
     {
-        Products GetProducts();
+        Products GetProducts(PageOptions pageOptions, SearchOptions searchOptions);
     }
 }
