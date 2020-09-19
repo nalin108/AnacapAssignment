@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Anacap.Product.API.Filters;
 using Anacap.Product.API.Models;
+using Anacap.Product.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,10 +29,12 @@ namespace Anacap.Product.API
         public void ConfigureServices(IServiceCollection services)
         {
             var productInfoCollection = Configuration.GetSection("Products").Get<ProductInfo[]>();
-            services.AddTransient<Products>(factory =>
+            services.AddTransient<IProductService, ProductService>(factory =>
             {
-                return new Products() { Value = productInfoCollection };
+                var products = new Products() { Value = productInfoCollection };
+                return new ProductService(products); 
             });
+
             services.AddControllers(configure =>
             {
                 configure.Filters.Add<ExceptionFilter>();

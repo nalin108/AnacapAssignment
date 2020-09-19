@@ -1,4 +1,5 @@
 ﻿using Anacap.Product.API.Models;
+using Anacap.Product.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System;
@@ -12,20 +13,21 @@ namespace Anacap.Product.API.Controllers
     [Route("/[controller]")]
     public class ProductsController: ControllerBase
     {
-        readonly Products _products;
-        public ProductsController(Products products)
+        readonly IProductService _productService;
+        public ProductsController(IProductService productService)
         {
-            _products = products;
+            _productService = productService;
         }
 
         [HttpGet(Name = nameof(GetProducts))]
         public ActionResult<Products> GetProducts()
         {
-            if (_products == null)
+            var products = _productService.GetProducts();
+            if (products == null)
                 return NotFound();
 
-            _products.Href = Url.Link(nameof(GetProducts), null);
-            return Ok(_products);
+            products.Href = Url.Link(nameof(GetProducts), null);
+            return Ok(products);
         }
     }
 }
