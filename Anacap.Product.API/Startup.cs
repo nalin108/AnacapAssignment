@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Anacap.Product.API.Filters;
+using Anacap.Product.API.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,11 @@ namespace Anacap.Product.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var productInfoCollection = Configuration.GetSection("Products").Get<ProductInfo[]>();
+            services.AddTransient<Products>(factory =>
+            {
+                return new Products() { Value = productInfoCollection };
+            });
             services.AddControllers(configure =>
             {
                 configure.Filters.Add<ExceptionFilter>();

@@ -15,7 +15,8 @@ namespace Anacap.Product.API.Controllers
         {
             var response =  new
             {
-                href = Url.Link(nameof(GetRoot), null)
+                href = Url.Link(nameof(GetRoot), null),
+                products = Url.Link(nameof(ProductsController.GetProducts), null)
             };
 
             return Ok(response);
