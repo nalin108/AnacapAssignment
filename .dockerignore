@@ -1,0 +1,11 @@
+#Folders
+.vs/
+
+*/bin/
+*/obj/
+*/v15/
+
+#Files
+
+*.user
+*.userosscache
