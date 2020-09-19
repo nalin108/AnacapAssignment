@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anacap.Product.API", "Anacap.Product.API\Anacap.Product.API.csproj", "{1849A1F7-4DE1-4C68-A90F-E7C1E8F35033}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anacap.Product.API", "Anacap.Product.API\Anacap.Product.API.csproj", "{1849A1F7-4DE1-4C68-A90F-E7C1E8F35033}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anacap.Product.Test", "Anacap.Product.Test\Anacap.Product.Test.csproj", "{F9EE080A-8E2E-4C7E-A4E0-B84F673FB449}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1849A1F7-4DE1-4C68-A90F-E7C1E8F35033}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1849A1F7-4DE1-4C68-A90F-E7C1E8F35033}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1849A1F7-4DE1-4C68-A90F-E7C1E8F35033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9EE080A-8E2E-4C7E-A4E0-B84F673FB449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9EE080A-8E2E-4C7E-A4E0-B84F673FB449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9EE080A-8E2E-4C7E-A4E0-B84F673FB449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9EE080A-8E2E-4C7E-A4E0-B84F673FB449}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
